@@ -100,6 +100,15 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-advanced-sitemap`,
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-DBMBH5S0V7"],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-clarity`,
       options: {
         // Clarity 프로젝트 ID의 문자열 값

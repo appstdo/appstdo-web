@@ -133,9 +133,7 @@ const ContactPage: React.FC = () => {
       };
 
       // 환경변수에서 Slack 웹훅 URL 가져오기
-      // const webhookUrl = process.env.GATSBY_SLACK_WEBHOOK_URL;
-      const webhookUrl =
-        "https://hooks.slack.com/services/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";
+      const webhookUrl = process.env.GATSBY_SLACK_WEBHOOK_URL;
 
       if (!webhookUrl) {
         throw new Error("Slack 웹훅 URL이 설정되지 않았습니다");
@@ -144,7 +142,7 @@ const ContactPage: React.FC = () => {
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         body: JSON.stringify(slackMessage),
       });
